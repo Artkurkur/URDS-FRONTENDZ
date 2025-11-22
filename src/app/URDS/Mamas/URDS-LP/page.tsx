@@ -13,7 +13,7 @@ const sidebarItems = [
 const filterOptions = ['All', 'Today', 'This Week', 'This Month', 'This Year', 'Specific Date'];
 
 export default function URDSDashboard() {
-  const [activeTab, setActiveTab] = useState(1);
+  const [activeTab, setActiveTab] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [isAnnouncementActive, setIsAnnouncementActive] = useState(false);
@@ -192,9 +192,7 @@ const handleSpecificYearSubmit = () => {
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
               <h2 className="text-lg font-semibold text-gray-700">URDS DIRECTOR DASHBOARD</h2>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs">👤</span>
-                </div>
+                
                 <button className="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-full text-sm transition-colors">
                   Submissions
                 </button>
