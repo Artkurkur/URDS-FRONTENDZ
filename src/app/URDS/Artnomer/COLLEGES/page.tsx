@@ -3,8 +3,8 @@
 // src/app/URDS/SUBMISSIONS/page.tsx
 "use client";
 
+import URDSSidebar from '@/components/urds-director/sidebar';
 import React, { useEffect, useMemo, useState } from "react";
-import Sidebar from "@/components/CollegeSubmissions/Sidebar";
 import SearchHeader from "@/components/CollegeSubmissions/SearchHeader";
 import CollegeGrid, { College } from "@/components/CollegeSubmissions/CollegeGrid";
 import CollegeModal from "@/components/CollegeSubmissions/CollegeModal";
@@ -17,6 +17,7 @@ export default function SubmissionsPage() {
   const [selected, setSelected] = useState<College | null>(null);
   const [loadedAll, setLoadedAll] = useState(false);
   const [loading, setLoading] = useState(true);
+   const [activeTab, setActiveTab] = useState(2);
 
   // Static list of colleges - submissions will be fetched from database
   const fallback: College[] = [
@@ -88,7 +89,7 @@ export default function SubmissionsPage() {
   return (
     <div className="min-h-screen bg-white text-gray-800">
       {/* Sidebar Component */}
-      <Sidebar activeCollegesCount={activeCollegesCount} />
+      <URDSSidebar activeTab={activeTab} onTabChange={setActiveTab} />
 
       {/* Header Component */}
       <SearchHeader query={query} setQuery={setQuery} onBack={handleBack} />

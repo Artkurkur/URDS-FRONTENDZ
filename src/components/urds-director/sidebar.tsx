@@ -61,7 +61,7 @@ export default function URDSSidebar({ activeTab, onTabChange }: URDSSidebarProps
 
       {/* URDS Logo */}
       <div className="mt-auto">
-        <img src="https://i.imgur.com/YqQYz1S.png" alt="URDS Logo" className="w-14 h-14 object-contain"/>
+        <img src="/images/logo/UEPlogo.png" alt="URDS Logo" className="w-16 h-16 mb-7 object-contain"/>
       </div>
     </div>
   );
