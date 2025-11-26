@@ -1,6 +1,6 @@
 "use client";
 
-import { Atom, Megaphone, ListTodo, Shield } from 'lucide-react';
+import { Atom, Megaphone, ListTodo, Shield, LayoutDashboard } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 interface SidebarItem {
@@ -16,9 +16,10 @@ interface URDSSidebarProps {
 }
 
 const sidebarItems: SidebarItem[] = [
-  { icon: Megaphone, label: 'Announcements', color: 'from-cyan-400 to-blue-500', route: '/URDS/Mamas/URDS-LP' },
-  { icon: Atom, label: 'Colleges', color: 'from-yellow-400 to-orange-500', route: '/URDS/Mamas/COLLEGES' },
-  { icon: ListTodo, label: 'Proposals', color: 'from-purple-400 to-purple-600' },
+  { icon: LayoutDashboard, label: 'Main Dashboard', color: 'from-red-500 to-pink-600', route: '/URDS/Mamas/URDS-LP' },
+  { icon: Megaphone, label: 'Announcements', color: 'from-cyan-400 to-blue-500', route: '/URDS/Artnomer/ANNOUNCEMENT' },
+  { icon: Atom, label: 'Colleges', color: 'from-yellow-400 to-orange-500', route: '/URDS/Artnomer/COLLEGES' },
+  { icon: ListTodo, label: 'Proposals', color: 'from-purple-400 to-purple-600', route: '/URDS/Artnomer/PROPOSALS' },
   { icon: Shield, label: 'Compliance', color: 'from-blue-400 to-blue-600' },
 ];
 
