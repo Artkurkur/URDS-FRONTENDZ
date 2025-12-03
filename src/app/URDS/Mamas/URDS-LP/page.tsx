@@ -85,9 +85,9 @@ const handleSpecificYearSubmit = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-50 flex">
+    <div className="min-h-screen bg-linear-to-br from-orange-50 via-white to-orange-50 flex">
       {/* Sidebar */}
-    <URDSSidebar activeTab={activeTab} onTabChange={setActiveTab} />
+    <URDSSidebar />
 
       {/* Main Content */}
       <div className="flex-1 ml-28 p-4 md:p-6">
@@ -100,8 +100,13 @@ const handleSpecificYearSubmit = () => {
                   University Research & Development Services
                 </h1>
               </div>
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-300 to-orange-400 hidden md:flex items-center justify-center overflow-hidden">
-                <span className="text-xs font-bold text-center leading-tight">EASTERN<br/>UNIV</span>
+              <div className="w-16 h-16 rounded-full bg-linear-to-br  hidden md:flex items-center justify-center overflow-hidden">
+                <img 
+                  src="/images/logo/UEPlogo.png" 
+                  alt="URDS Logo" 
+                  className="w-16 h-16 object-contain" 
+                />
+
               </div>
             </div>
 
@@ -112,7 +117,7 @@ const handleSpecificYearSubmit = () => {
               </span>
               <div 
                 onClick={handleAnnouncementClick}
-                className={`relative bg-gradient-to-r from-gray-50 to-orange-50 rounded-2xl p-4 flex items-center gap-4 border border-gray-100 cursor-pointer transition-all duration-300 ${
+                className={`relative bg-linear-to-r from-gray-50 to-orange-50 rounded-2xl p-4 flex items-center gap-4 border border-gray-100 cursor-pointer transition-all duration-300 ${
                   isAnnouncementActive 
                     ? 'brightness-90 ring-2 ring-blue-400' 
                     : 'hover:brightness-95'
@@ -135,7 +140,7 @@ const handleSpecificYearSubmit = () => {
                   </>
                 )}
 
-                <div className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl p-3 text-white text-center min-w-16">
+                <div className="bg-linear-to-br from-blue-400 to-blue-600 rounded-xl p-3 text-white text-center min-w-16">
                   <div className="text-xs">TODAY</div>
                   <div className="text-xl font-bold">17:00</div>
                 </div>
@@ -177,7 +182,7 @@ const handleSpecificYearSubmit = () => {
                     setFormData({ title: '', description: '', startDate: '', deadline: '', guidelines: '' });
                     setIsModalOpen(true);
                   }}
-                  className="group flex items-center gap-2 text-gray-600 hover:text-white bg-gray-100 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 px-4 py-2 rounded-full transition-all duration-500 ease-in-out hover:shadow-lg hover:shadow-blue-500/30"
+                  className="group flex items-center gap-2 text-gray-600 hover:text-white bg-gray-100 hover:bg-linear-to-r hover:from-blue-500 hover:to-blue-600 px-4 py-2 rounded-full transition-all duration-500 ease-in-out hover:shadow-lg hover:shadow-blue-500/30"
                 >
                   <Plus className="w-4 h-4 transition-transform duration-300 group-hover:rotate-90 group-hover:scale-110" />
                   <span className="text-sm">Create New Call For Proposals</span>
@@ -269,7 +274,7 @@ const handleSpecificYearSubmit = () => {
           <div className="relative bg-white rounded-3xl shadow-2xl w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between p-6 border-b border-gray-100">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl flex items-center justify-center">
+                <div className="w-10 h-10 bg-linear-to-br from-emerald-400 to-emerald-600 rounded-xl flex items-center justify-center">
                   {isEditMode ? <Pencil className="w-5 h-5 text-white" /> : <Plus className="w-5 h-5 text-white" />}
                 </div>
                 <h2 className="text-xl font-bold text-gray-800">
@@ -363,7 +368,7 @@ const handleSpecificYearSubmit = () => {
               </button>
               <button
                 onClick={handleSubmit}
-                className="px-6 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-medium rounded-xl shadow-lg shadow-emerald-500/30 transition-all"
+                className="px-6 py-2.5 bg-linear-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-medium rounded-xl shadow-lg shadow-emerald-500/30 transition-all"
               >
                 {isEditMode ? 'Save Changes' : 'Create Proposal'}
               </button>
@@ -384,7 +389,7 @@ const handleSpecificYearSubmit = () => {
     {/* Header */}
     <div className="flex items-center justify-between p-6 border-b border-gray-100">
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center">
+        <div className="w-10 h-10 bg-linear-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center">
           <Calendar className="w-5 h-5 text-white" />
         </div>
         <h2 className="text-xl font-bold text-gray-800">Select Year</h2>
@@ -421,7 +426,7 @@ const handleSpecificYearSubmit = () => {
       </button>
       <button
         onClick={handleSpecificYearSubmit}
-        className="px-6 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium rounded-xl shadow-lg shadow-blue-500/30 transition-all"
+        className="px-6 py-2.5 bg-linear-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium rounded-xl shadow-lg shadow-blue-500/30 transition-all"
       >
         Apply Filter
       </button>
