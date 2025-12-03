@@ -1,5 +1,4 @@
 // ================================================================
-
 // src/components/CollegeGrid.tsx
 "use client";
 
@@ -19,13 +18,6 @@ type CollegeGridProps = {
   defaultLogo: string;
 };
 
-function getBadgeClass(n: number) {
-  if (n >= 30) return "bg-blue-600";
-  if (n >= 20) return "bg-orange-400";
-  if (n >= 10) return "bg-teal-500";
-  return "bg-red-500";
-}
-
 export default function CollegeGrid({ colleges, onSelect, defaultLogo }: CollegeGridProps) {
   if (colleges.length === 0) {
     return (
@@ -36,24 +28,54 @@ export default function CollegeGrid({ colleges, onSelect, defaultLogo }: College
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
       {colleges.map((c) => (
         <button
           key={c.id}
           onClick={() => onSelect(c)}
-          className="group bg-white rounded-xl p-4 flex items-center justify-center relative overflow-hidden border hover:shadow-xl transition"
+          className="
+            group bg-white rounded-xl border shadow-md hover:shadow-lg
+            transition p-4 flex flex-col justify-between relative
+          "
         >
-          <div className="w-full h-40 flex items-center justify-center">
-            <img 
-              src={c.logoUrl ?? defaultLogo} 
-              alt={c.name} 
-              className="max-h-28 object-contain transform group-hover:scale-105 transition" 
-            />
+          {/* Top row: Logo + Title */}
+          <div className="flex items-center gap-4">
+
+            {/* Logo */}
+            <div className="w-20 h-20 flex items-center justify-center">
+              <img
+                src={c.logoUrl || defaultLogo}
+                alt={c.name}
+                onError={(e) => (e.currentTarget.src = defaultLogo)}
+                className="w-full h-full object-contain rounded-full"
+              />
+            </div>
+
+            {/* Text column */}
+            <div className="flex flex-col text-left">
+              <span className="text-sm font-semibold text-gray-600 tracking-wide">
+                {c.code}
+              </span>
+              <span className="text-lg font-bold text-gray-800 leading-tight">
+                {c.name}
+              </span>
+            </div>
           </div>
 
-          {/* submission count badge */}
-          <div className={`absolute top-3 right-3 w-10 h-10 rounded-full text-white font-bold flex items-center justify-center border-2 border-white shadow ${getBadgeClass(c.submissions)}`}>
-            {c.submissions}
+          {/* Divider */}
+          <div className="border-t border-gray-300 mt-4 mb-2"></div>
+
+          {/* Submissions Count — aligned to bottom right */}
+          <div className="flex justify-end items-center gap-2">
+            <span className="text-xs text-gray-600">Total Submissions:</span>
+            <div
+              className="
+                bg-orange-500 text-white font-bold w-10 h-10 rounded-full
+                flex items-center justify-center shadow
+              "
+            >
+              {c.submissions}
+            </div>
           </div>
         </button>
       ))}
