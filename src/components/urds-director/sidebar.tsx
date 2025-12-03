@@ -1,10 +1,11 @@
-"use client";
+'use client';
 
-import { Atom, Megaphone, ListTodo, Shield, LayoutDashboard } from 'lucide-react';
+import { Atom, Megaphone, ListTodo, LayoutDashboard } from 'lucide-react';
 import { useRouter, usePathname } from 'next/navigation';
+
 const sidebarItems = [
   { icon: LayoutDashboard, label: 'Main Dashboard', color: 'from-red-500 to-pink-600', route: '/URDS/Mamas/URDS-LP' },
-  { icon: Megaphone, label: 'Announcements', color: 'from-cyan-400 to-blue-500', route: '/URDS/Artnomer/ANNOUNCEMENT' },
+  { icon: Megaphone, label: 'Announcements', color: 'from-cyan-400 to-blue-500', route: '/URDS/Mamas/ANNOUNCEMENTS' },
   { icon: Atom, label: 'Colleges', color: 'from-yellow-400 to-orange-500', route: '/URDS/Artnomer/COLLEGES' },
   { icon: ListTodo, label: 'Proposals', color: 'from-purple-400 to-purple-600', route: '/URDS/Artnomer/PROPOSALS' }
 ];
@@ -12,18 +13,12 @@ const sidebarItems = [
 export default function URDSSidebar() {
   const router = useRouter();
   const pathname = usePathname();
-
   const activeTab = sidebarItems.findIndex(item => item.route === pathname);
 
   return (
     <div className="w-20 bg-white py-6 flex flex-col items-center gap-2 fixed left-4 top-4 bottom-4 z-10 shadow-[0_8px_30px_rgba(0,0,0,0.12)] rounded-3xl border border-gray-100">
-      
-      <div className="w-16 h-16 bg-linear-to-br rounded-xl flex items-center justify-center mb-6">
-        <img 
-           src="/images/logo/URDS-logo.png" 
-           alt="URDS Logo" 
-           className="w-25 h-25 object-contain" 
-        />
+      <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+        <img src="/images/logo/URDS-logo.png" alt="URDS Logo" className="w-25 h-25 object-contain" />
       </div>
 
       <div className="flex flex-col gap-3 flex-1 relative">
@@ -46,7 +41,7 @@ export default function URDSSidebar() {
       </div>
 
       <div className="mt-auto">
-        <img src="/images/logo/UEPlogo.png" alt="URDS Logo" className="w-16 h-16 -mb-1 object-contain"/>
+        <img src="/images/logo/UEPlogo.png" alt="UEP Logo" className="w-16 h-16 -mb-1 object-contain"/>
       </div>
     </div>
   );
