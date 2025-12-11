@@ -69,39 +69,39 @@ export default function FacultySubmissionsPage() {
   return (
     <div className="min-h-screen bg-linear-to-br from-orange-50 via-white to-orange-50 text-gray-800 font-sans selection:bg-red-500/20">
 
-      {/* Decorative Background Elements */}
-      <div className="fixed top-0 left-0 h-full w-2 bg-red-500 z-0"></div>
-      <div className="fixed top-0 right-0 h-full w-2 bg-red-500 z-0"></div>
+      {/* Decorative Background Elements - Hidden on mobile */}
+      <div className="hidden md:block fixed top-0 left-0 h-full w-2 bg-red-500 z-0"></div>
+      <div className="hidden md:block fixed top-0 right-0 h-full w-2 bg-red-500 z-0"></div>
 
       {/* Sidebar */}
       <URDSSidebar />
 
-      <main className="max-w-[1600px] mx-auto px-8 py-6 pl-24 relative">
+      <main className="max-w-[1600px] mx-auto px-4 md:px-8 py-6 md:pl-24 relative">
         <Header selectedCollege={selectedCollege} setSelectedCollege={setSelectedCollege} />
 
         {/* Main Content Card */}
-        <div className="w-[98%] bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden mb-12 relative mx-auto">
+        <div className="w-full md:w-[98%] bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden mb-12 relative mx-auto">
 
           {/* Red Header Bar */}
-          <div className="bg-red-500 text-white py-3 px-6 rounded-t-lg mx-4 mt-4 shadow-md relative z-10">
-            <h2 className="text-lg font-bold tracking-wide uppercase">
-              Faculty Submissions - {selectedCollege.name.toUpperCase()}
+          <div className="bg-red-500 text-white py-3 px-4 md:px-6 rounded-t-lg mx-2 md:mx-4 mt-2 md:mt-4 shadow-md relative z-10">
+            <h2 className="text-sm md:text-lg font-bold tracking-wide uppercase">
+              Faculty Submissions - {selectedCollege.code}
             </h2>
           </div>
 
           {/* Content Area */}
-          <div className="p-6 pt-8 pb-12 relative">
+          <div className="p-4 md:p-6 pt-6 md:pt-8 pb-8 md:pb-12 relative">
 
             {/* Total Submissions Badge */}
-            <div className="absolute -top-16 right-8 bg-white border border-gray-300 shadow-sm rounded-lg px-4 py-1 z-20 flex items-center gap-2">
-              <span className="text-xs text-gray-500 font-bold uppercase">Total Submissions :</span>
-              <span className="text-xl font-bold text-gray-800">
+            <div className="absolute -top-12 md:-top-16 right-4 md:right-8 bg-white border border-gray-300 shadow-sm rounded-lg px-3 md:px-4 py-1 z-20 flex items-center gap-2">
+              <span className="text-xs text-gray-500 font-bold uppercase">Total:</span>
+              <span className="text-lg md:text-xl font-bold text-gray-800">
                 {loading ? '...' : submissions.length}
               </span>
             </div>
 
-            {/* Table Header */}
-            <div className="w-full px-4 mb-2">
+            {/* Table Header - Hidden on mobile, shown on tablet+ */}
+            <div className="hidden md:block w-full px-4 mb-2">
               <div className="grid grid-cols-12 gap-4 text-sm font-medium text-gray-500 tracking-wider">
                 <div className="col-span-2 text-left">Faculty</div>
                 <div className="col-span-2 text-left">Department</div>
@@ -123,7 +123,7 @@ export default function FacultySubmissionsPage() {
                   {[1, 2, 3].map(i => (
                     <div
                       key={i}
-                      className="h-24 bg-gray-50 animate-pulse rounded-lg border border-gray-200"
+                      className="h-20 md:h-24 bg-gray-50 animate-pulse rounded-lg border border-gray-200"
                     ></div>
                   ))}
                 </div>
@@ -131,13 +131,13 @@ export default function FacultySubmissionsPage() {
               ) : submissions.length === 0 ? (
 
                 // NO SUBMISSION YET — with clickable text link
-                <div className="w-full py-20 flex justify-center items-center">
-                  <div className="text-center max-w-md">
-                    <p className="text-gray-500 text-lg font-semibold tracking-wide">
+                <div className="w-full py-12 md:py-20 flex justify-center items-center">
+                  <div className="text-center max-w-md px-4">
+                    <p className="text-gray-500 text-base md:text-lg font-semibold tracking-wide">
                       No submissions yet
                     </p>
 
-                    <p className="text-gray-400 text-sm mt-1">
+                    <p className="text-gray-400 text-xs md:text-sm mt-1">
                       Click{" "}
                       <Link
                         href="/URDS/Mamas/URDS-LP"
