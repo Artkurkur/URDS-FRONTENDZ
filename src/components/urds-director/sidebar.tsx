@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const sidebarItems = [
   { icon: LayoutDashboard, label: 'Main Dashboard', color: 'from-red-500 to-pink-600', route: '/URDS/Mamas/URDS-LP' },
-  { icon: Megaphone, label: 'Announcements', color: 'from-cyan-400 to-blue-500', route: '/URDS/Mamas/ANNOUNCEMENTS' },
+  { icon: Megaphone, label: 'Announcements', color: 'from-cyan-400 to-blue-500', route: '/URDS/Artnomer/ANNOUNCEMENT' },
   { icon: Atom, label: 'Colleges', color: 'from-yellow-400 to-orange-500', route: '/URDS/Artnomer/COLLEGES' },
   { icon: ListTodo, label: 'Proposals', color: 'from-purple-400 to-purple-600', route: '/URDS/Artnomer/PROPOSALS' }
 ];

@@ -1,6 +1,5 @@
 // src/app/page.tsx
 import type { Metadata } from "next";
-import Link from "next/link";
 
 // Optional: Metadata for SEO / tab title
 export const metadata: Metadata = {

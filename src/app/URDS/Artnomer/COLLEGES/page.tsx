@@ -9,7 +9,7 @@ import SearchHeader from "@/components/CollegeSubmissions/SearchHeader";
 import CollegeGrid, { College } from "@/components/CollegeSubmissions/CollegeGrid";
 import CollegeModal from "@/components/CollegeSubmissions/CollegeModal";
 
-const UPLOADED_LOGO = "/images/uep-default.png"; // <-- Make sure this file exists
+const UPLOADED_LOGO = "/images/uep-default.png";
 
 export default function SubmissionsPage() {
   const [colleges, setColleges] = useState<College[]>([]);
@@ -17,7 +17,7 @@ export default function SubmissionsPage() {
   const [selected, setSelected] = useState<College | null>(null);
 
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState(2);
+
 
   // Static fallback (with logos)
   const fallback: College[] = [
@@ -87,42 +87,48 @@ export default function SubmissionsPage() {
       {/* Search Header */}
       <SearchHeader query={query} setQuery={setQuery} onBack={handleBack} />
 
-      {/* Watermark */}
-      <div className="pointer-events-none fixed inset-0 opacity-30 z-0 flex justify-center items-start pt-40">
+      {/* Watermark - Hidden on mobile */}
+      <div className="pointer-events-none fixed inset-0 opacity-30 z-0 hidden md:flex justify-center items-start pt-40">
         <img src={UPLOADED_LOGO} alt="UEP logo" className="max-w-lg blur-sm" />
       </div>
 
       {/* Content */}
-      <main className="max-w-6xl mx-auto px-6 py-6 relative z-10">
+      <main className="max-w-6xl mx-auto px-4 md:px-6 py-4 md:py-6 relative z-10">
         <div className="relative">
-          <span className="absolute -top-4 left-8 bg-white px-4 py-2 rounded-lg shadow border text-xs font-semibold">
-            University of Eastern Philippines Colleges Department
-          </span>
+          {/* University Label - Responsive */}
+          <div className="mb-3 md:mb-0">
+            <span className="inline-block md:absolute md:-top-4 md:left-8 bg-white px-3 md:px-4 py-1.5 md:py-2 rounded-lg shadow-sm border border-gray-200 text-xs font-semibold text-gray-700">
+              University of Eastern Philippines
+            </span>
+          </div>
 
-          <section className="mt-6 bg-transparent rounded-2xl shadow-md border border-gray-200 p-6">
+          <section className="mt-0 md:mt-6 bg-white md:bg-transparent rounded-xl md:rounded-2xl shadow-sm md:shadow-md border border-gray-200 p-0 md:p-6">
             {loading ? (
               <div className="flex justify-center items-center py-12">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
               </div>
             ) : (
               <>
-                <div className="flex justify-end mb-4">
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs uppercase font-semibold text-gray-700">
-                      Total Colleges Submission
+                {/* Total Badge - Responsive */}
+                <div className="flex justify-end px-4 pt-4 pb-3 md:px-0 md:pt-0 md:pb-0 mb-3 md:mb-4">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs uppercase font-semibold text-gray-600">
+                      TOTAL:
                     </span>
-                    <span className="bg-blue-600 text-white font-bold px-4 py-2 rounded-md text-lg shadow">
+                    <span className="bg-blue-600 text-white font-bold px-3 py-1.5 rounded-md text-base shadow">
                       {total}
                     </span>
                   </div>
                 </div>
 
                 {/* College Grid */}
-                <CollegeGrid 
-                  colleges={filtered}
-                  onSelect={setSelected}
-                  defaultLogo={UPLOADED_LOGO}
-                />
+                <div className="px-4 pb-4 md:px-0 md:pb-0">
+                  <CollegeGrid 
+                    colleges={filtered}
+                    onSelect={setSelected}
+                    defaultLogo={UPLOADED_LOGO}
+                  />
+                </div>
 
               </>
             )}
