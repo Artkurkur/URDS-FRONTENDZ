@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Eye, Megaphone } from 'lucide-react';
+import URDSSidebar from '@/components/CollegeDean/Sidebar';
 
 interface Submission {
   id: number;
@@ -107,7 +108,10 @@ export default function ResearchCoordinator() {
     : submissions.filter(sub => sub.statusColor === filterStatus);
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="min-h-screen bg-linear-to-br from-orange-50 via-white to-orange-50 text-gray-800 font-sans selection:bg-red-500/20">
+      {/* Sidebar */}
+      <URDSSidebar />
+
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="bg-white rounded-2xl shadow-sm p-6 mb-6">
