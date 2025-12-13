@@ -1,10 +1,11 @@
 "use client";
 
-import { Atom, Megaphone, ListTodo, Shield, LayoutDashboard, Menu, X } from 'lucide-react';
+import { Atom, Megaphone, ListTodo, User, LayoutDashboard, Menu, X } from 'lucide-react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 const sidebarItems = [
+  { icon: User, label: 'Profile', color: 'from-emerald-400 to-emerald-600', route: '/URDS/Artnomer/PROFILE' },
   { icon: LayoutDashboard, label: 'Main Dashboard', color: 'from-red-500 to-pink-600', route: '/URDS/Mamas/URDS-LP' },
   { icon: Megaphone, label: 'Announcements', color: 'from-cyan-400 to-blue-500', route: '/URDS/Mamas/ANNOUNCEMENTS' },
   { icon: Atom, label: 'Colleges', color: 'from-yellow-400 to-orange-500', route: '/URDS/Artnomer/COLLEGES' },

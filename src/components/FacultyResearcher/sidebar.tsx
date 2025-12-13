@@ -12,7 +12,7 @@ import { useRouter, usePathname } from 'next/navigation';
 
 // === UPDATED SIDEBAR ITEMS ===
 const sidebarItems = [
-  { icon: User, label: 'Profile', color: 'from-emerald-400 to-emerald-600', route: '/URDS/PROFILE' },
+  { icon: User, label: 'Profile', color: 'from-emerald-400 to-emerald-600', route: '/URDS/Artnomer/PROFILE' },
   { icon: LayoutDashboard, label: 'Main Dashboard', color: 'from-red-500 to-pink-600', route: '/URDS/Mamas/URDS-LP' },
   { icon: Megaphone, label: 'Announcements', color: 'from-cyan-400 to-blue-500', route: '/URDS/Artnomer/ANNOUNCEMENT' },
   { icon: FileStack, label: 'Files', color: 'from-yellow-400 to-orange-500', route: '/URDS/FILES' },
