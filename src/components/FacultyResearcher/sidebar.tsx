@@ -12,9 +12,9 @@ import { useRouter, usePathname } from 'next/navigation';
 
 // === UPDATED SIDEBAR ITEMS ===
 const sidebarItems = [
-  { icon: User, label: 'Profile', color: 'from-emerald-400 to-emerald-600', route: '/URDS/Artnomer/PROFILE' },
+  { icon: User, label: 'Profile', color: 'from-emerald-400 to-emerald-600', route: '/URDS/Artnomer/FR-PROFILE' },
   { icon: LayoutDashboard, label: 'Main Dashboard', color: 'from-red-500 to-pink-600', route: '/URDS/Gerald/FRD-MAIN' },
-  { icon: Megaphone, label: 'Announcements', color: 'from-cyan-400 to-blue-500', route: '/URDS/Mamas/ANNOUNCEMENTS' },
+  { icon: Megaphone, label: 'Announcements', color: 'from-cyan-400 to-blue-500', route: '/URDS/Gerald/FRD-ANNOUNCEMENT' },
   { icon: FileStack, label: 'Files', color: 'from-yellow-400 to-orange-500', route: '/URDS/Gerald/FRD-FILES' },
   { icon: MessageCircle, label: 'Feedback', color: 'from-purple-400 to-purple-600', route: '/URDS/Artnomer/FEEDBACK' },
 ];

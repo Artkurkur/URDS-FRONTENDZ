@@ -6,8 +6,8 @@ import { useState } from 'react';
 
 const sidebarItems = [
   { icon: User, label: 'Profile', color: 'from-emerald-400 to-emerald-600', route: '/URDS/Artnomer/CD-PROFILE' },
-  { icon: LayoutDashboard, label: 'Main Dashboard', color: 'from-red-500 to-pink-600', route: '/URDS/Chokuliyt/EVAL-PROFILE' },
-  { icon: Megaphone, label: 'Announcements', color: 'from-cyan-400 to-blue-500', route: '/URDS/Chokuliyt/ANNOUNCEMENTS' }
+  { icon: LayoutDashboard, label: 'Main Dashboard', color: 'from-red-500 to-pink-600', route: '/URDS/Chokuliyt/CD' },
+  { icon: Megaphone, label: 'Announcements', color: 'from-cyan-400 to-blue-500', route: '/URDS/Artnomer/CD-ANNOUNCEMENTS' }
 ];
 
 export default function URDSSidebar() {

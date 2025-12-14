@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Eye, Megaphone } from 'lucide-react';
-import URDSSidebar from '@/components/SFR/sidebar';
+import URDSSidebar from '@/components/Evaluator/sidebar';
 
 interface Submission {
   id: number;
