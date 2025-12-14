@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { User, Mail, Phone, Building2, MapPin, Calendar, Edit2, Save, X, Camera, Loader2 } from 'lucide-react';
+import URDSSidebar from '@/components/urds-director/sidebar';
 
 interface ProfileData {
   name: string;
@@ -174,8 +175,11 @@ export default function ProfilePage() {
 
   return (
     <div className="min-h-screen bg-linear-to-br from-orange-50 via-white to-orange-50 text-gray-800 font-sans selection:bg-red-500/20">
+      {/* Sidebar */}
+      <URDSSidebar />
+
       {/* Header */}
-      <div className="bg-white border-b border-stone-200 px-8 py-6">
+      <div className="bg-transparent border-b border-stone-200 px-8 py-6">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center gap-4">
             <img src="/images/logo/URDS-logo.png" alt="URDS Logo" className="w-12 h-12" />

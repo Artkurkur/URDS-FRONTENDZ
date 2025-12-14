@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import URDSSidebar from "@/components/urds-director/sidebar"; 
+import URDSSidebar from "@/components/FacultyResearcher/sidebar"; 
 import { FileText, Bell, Search, ChevronDown, Calendar, Clock, Megaphone } from "lucide-react";
 
 const AnnouncementsPage: React.FC = () => {

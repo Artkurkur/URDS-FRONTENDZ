@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { FaArrowLeft, FaSearch } from "react-icons/fa";
 
-import URDSSidebar from "@/components/urds-director/sidebar";
+import URDSSidebar from "@/components/FacultyResearcher/sidebar";
 import StudyCard, { Study, Submission } from "@/components/FR/StudyCard";
 import UnifiedAddStudyModal from "@/components/FR/UnifiedAddStudyModal";
 

@@ -12,8 +12,8 @@ import { useRouter, usePathname } from 'next/navigation';
 
 // === UPDATED SIDEBAR ITEMS ===
 const sidebarItems = [
-  { icon: User, label: 'Profile', color: 'from-emerald-400 to-emerald-600', route: '/URDS/Artnomer/EVAL-PROFILE' },
-  { icon: LayoutDashboard, label: 'Main Dashboard', color: 'from-red-500 to-pink-600', route: '/URDS/Chokuliyt/EVALUATOR' },
+  { icon: User, label: 'Profile', color: 'from-emerald-400 to-emerald-600', route: '/URDS/Artnomer/PROFILE' },
+  { icon: LayoutDashboard, label: 'Main Dashboard', color: 'from-red-500 to-pink-600', route: '/URDS/Mamas/URDS-LP' },
 ];
 
 export default function URDSSidebar() {

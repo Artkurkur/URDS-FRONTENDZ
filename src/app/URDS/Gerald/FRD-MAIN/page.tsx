@@ -1,6 +1,6 @@
 'use client';
 
-import URDSSidebar from '@/components/urds-director/sidebar';
+import URDSSidebar from '@/components/FacultyResearcher/sidebar';
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import ResearchModal from '@/components/FRS/modal';
@@ -68,7 +68,7 @@ const FacultyDashboard: React.FC = () => {
   };
 
   const handleFeedbackClick = () => {
-    router.push('/feed');
+    router.push('/URDS/Artnomer/FEEDBACK');
   };
 
   return (

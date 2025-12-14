@@ -50,6 +50,18 @@ export default function SignUpForm() {
                       placeholder="Enter your first name"
                     />
                   </div>
+                  {/* <!-- Middle Name --> */}
+                  <div className="sm:col-span-1">
+                    <Label>
+                      Middle Name<span className="text-error-500">*</span>
+                    </Label>
+                    <Input
+                      type="text"
+                      id="mname"
+                      name="mname"
+                      placeholder="Enter your middle name"
+                    />
+                  </div>
                   {/* <!-- Last Name --> */}
                   <div className="sm:col-span-1">
                     <Label>
@@ -66,13 +78,13 @@ export default function SignUpForm() {
                 {/* <!-- Email --> */}
                 <div>
                   <Label>
-                    Email<span className="text-error-500">*</span>
+                    Username<span className="text-error-500">*</span>
                   </Label>
                   <Input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Enter your email"
+                    type="username"
+                    id="username"
+                    name="username"
+                    placeholder="Enter your username"
                   />
                 </div>
                 {/* <!-- Password --> */}
