@@ -10,7 +10,7 @@ import React, { useState } from "react";
 export default function SignInForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -26,7 +26,7 @@ export default function SignInForm() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email,
+          username,
           password,
         }),
       });
@@ -64,7 +64,7 @@ export default function SignInForm() {
           window.location.href = "/URDS/Chokuliyt/CD";
           break;
         case "FACULTY RESEARCHER":
-          window.location.href = "/URDS/Gerald/FRD-ANNOUNCEMENT";
+          window.location.href = "/URDS/Gerald/FRD-MAIN";
           break;
         case "EVALUATOR":
           window.location.href = "/URDS/Chokuliyt/SFR";
@@ -122,9 +122,9 @@ export default function SignInForm() {
                 <input
                   className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
                   placeholder="info@gmail.com"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  type="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   onKeyPress={handleKeyPress}
                   required
                 />
