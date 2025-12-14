@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Search, ChevronDown } from 'lucide-react';
 import AnnouncementBanner from '@/components/urds-director/AnnouncementBanner';
-import URDSSidebar from '@/components/urds-director/sidebar';
+import URDSSidebar from '@/components/Evaluator/sidebar';
 
 export interface Announcement {
   id: string;
