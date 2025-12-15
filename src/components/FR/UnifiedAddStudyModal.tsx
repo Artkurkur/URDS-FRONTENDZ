@@ -234,7 +234,7 @@ export default function UnifiedAddStudyModal({
           <td className="p-1 border border-black bg-white pl-2">{label}</td>
           <td className="p-0 border border-black w-32">
             <input
-              type="number"
+              type="number"0
               className="w-full h-full p-1 text-right outline-none placeholder-black"
               placeholder={placeholder1}
               value={String(newStudy[`${key}_y1`] || "")}
