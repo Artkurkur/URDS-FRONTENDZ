@@ -117,11 +117,11 @@ export default function SignInForm() {
               
               <div>
                 <Label>
-                  Email <span className="text-error-500">*</span>{" "}
+                  Username <span className="text-error-500">*</span>{" "}
                 </Label>
                 <input
                   className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
-                  placeholder="info@gmail.com"
+                  placeholder="Please enter username"
                   type="username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}

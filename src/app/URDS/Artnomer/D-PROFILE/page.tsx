@@ -1,14 +1,16 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react';
-import { User, Mail, Phone, Building2, MapPin, Calendar, Edit2, Save, X, Camera, Loader2 } from 'lucide-react';
+import { User, Mail, Building2, MapPin, Calendar, Edit2, Save, X, Camera, Loader2 } from 'lucide-react';
 import URDSSidebar from '@/components/urds-director/sidebar';
 
 interface ProfileData {
-  name: string;
-  email: string;
-  phone: string;
+  firstName: string;
+  lastName: string;
+  middleName: string;
+  username: string;
   department: string;
+  college: string;
   position: string;
   office: string;
   dateJoined: string;
@@ -26,10 +28,12 @@ export default function ProfilePage() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isSaving, setIsSaving] = useState<boolean>(false);
   const [profile, setProfile] = useState<ProfileData>({
-    name: '',
-    email: '',
-    phone: '',
+    firstName: '',
+    lastName: '',
+    middleName: '',
+    username: '',
     department: '',
+    college: '',
     position: '',
     office: '',
     dateJoined: '',
@@ -162,6 +166,10 @@ export default function ProfilePage() {
     }
   };
 
+  const getFullName = () => {
+    return `${profile.firstName} ${profile.middleName} ${profile.lastName}`.trim();
+  };
+
   if (isLoading) {
     return (
       <div className="min-h-screen bg-stone-100 flex items-center justify-center">
@@ -228,12 +236,12 @@ export default function ProfilePage() {
                 {isEditing && (
                   <p className="text-xs text-slate-500 mb-4">Click to change profile picture</p>
                 )}
-                <h2 className="text-xl font-semibold text-slate-800 mb-1">{profile.name || 'Loading...'}</h2>
+                <h2 className="text-xl font-semibold text-slate-800 mb-1">{getFullName() || 'Loading...'}</h2>
                 <p className="text-sm text-slate-500 mb-4">{profile.position}</p>
                 <div className="w-full pt-4 border-t border-stone-200">
                   <div className="flex items-center gap-2 text-sm text-slate-600 mb-3">
                     <Building2 className="w-4 h-4" />
-                    <span>{profile.department}</span>
+                    <span>{profile.department}/{profile.college}</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-slate-600">
                     <Calendar className="w-4 h-4" />
@@ -305,82 +313,108 @@ export default function ProfilePage() {
               </div>
 
               <div className="space-y-6">
-                {/* Full Name */}
+                {/* First Name */}
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Full Name
+                    First Name
                   </label>
                   {isEditing ? (
                     <input
                       type="text"
-                      value={editedProfile.name}
-                      onChange={(e) => handleChange('name', e.target.value)}
+                      value={editedProfile.firstName}
+                      onChange={(e) => handleChange('firstName', e.target.value)}
                       className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
                     />
                   ) : (
                     <div className="flex items-center gap-3 px-4 py-3 bg-stone-50 rounded-lg">
                       <User className="w-5 h-5 text-slate-400" />
-                      <span className="text-slate-700">{profile.name}</span>
+                      <span className="text-slate-700">{profile.firstName}</span>
                     </div>
                   )}
                 </div>
 
-                {/* Email */}
+                {/* Middle Name */}
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Email Address
+                    Middle Name
                   </label>
                   {isEditing ? (
                     <input
-                      type="email"
-                      value={editedProfile.email}
-                      onChange={(e) => handleChange('email', e.target.value)}
+                      type="text"
+                      value={editedProfile.middleName}
+                      onChange={(e) => handleChange('middleName', e.target.value)}
+                      className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                    />
+                  ) : (
+                    <div className="flex items-center gap-3 px-4 py-3 bg-stone-50 rounded-lg">
+                      <User className="w-5 h-5 text-slate-400" />
+                      <span className="text-slate-700">{profile.middleName}</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Last Name */}
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
+                    Last Name
+                  </label>
+                  {isEditing ? (
+                    <input
+                      type="text"
+                      value={editedProfile.lastName}
+                      onChange={(e) => handleChange('lastName', e.target.value)}
+                      className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                    />
+                  ) : (
+                    <div className="flex items-center gap-3 px-4 py-3 bg-stone-50 rounded-lg">
+                      <User className="w-5 h-5 text-slate-400" />
+                      <span className="text-slate-700">{profile.lastName}</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Username */}
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
+                    Username
+                  </label>
+                  {isEditing ? (
+                    <input
+                      type="text"
+                      value={editedProfile.username}
+                      onChange={(e) => handleChange('username', e.target.value)}
                       className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
                     />
                   ) : (
                     <div className="flex items-center gap-3 px-4 py-3 bg-stone-50 rounded-lg">
                       <Mail className="w-5 h-5 text-slate-400" />
-                      <span className="text-slate-700">{profile.email}</span>
+                      <span className="text-slate-700">{profile.username}</span>
                     </div>
                   )}
                 </div>
 
-                {/* Phone */}
+                {/* Department/College */}
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Phone Number
-                  </label>
-                  {isEditing ? (
-                    <input
-                      type="tel"
-                      value={editedProfile.phone}
-                      onChange={(e) => handleChange('phone', e.target.value)}
-                      className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
-                    />
-                  ) : (
-                    <div className="flex items-center gap-3 px-4 py-3 bg-stone-50 rounded-lg">
-                      <Phone className="w-5 h-5 text-slate-400" />
-                      <span className="text-slate-700">{profile.phone}</span>
-                    </div>
-                  )}
-                </div>
-
-                {/* Department */}
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Department
+                    Department/College
                   </label>
                   {isEditing ? (
                     <input
                       type="text"
-                      value={editedProfile.department}
-                      onChange={(e) => handleChange('department', e.target.value)}
+                      value={`${editedProfile.department}/${editedProfile.college}`}
+                      onChange={(e) => {
+                        const value = e.target.value;
+                        const parts = value.split('/');
+                        handleChange('department', parts[0] || '');
+                        handleChange('college', parts[1] || '');
+                      }}
+                      placeholder="Department/College"
                       className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
                     />
                   ) : (
                     <div className="flex items-center gap-3 px-4 py-3 bg-stone-50 rounded-lg">
                       <Building2 className="w-5 h-5 text-slate-400" />
-                      <span className="text-slate-700">{profile.department}</span>
+                      <span className="text-slate-700">{profile.department}/{profile.college}</span>
                     </div>
                   )}
                 </div>

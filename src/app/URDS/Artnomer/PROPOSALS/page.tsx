@@ -175,7 +175,7 @@ export default function FacultySubmissionsPage() {
         
         if (err instanceof Error) {
           if (err.name === 'AbortError') {
-            setError("Request timeout - API is not responding. This might be a CORS issue.");
+            setError("Request timeout - Server is not responding.");
           } else if (err.message.includes('CORS')) {
             setError("CORS Error - Backend needs to allow requests from this domain");
           } else if (err.message.includes('Failed to fetch')) {

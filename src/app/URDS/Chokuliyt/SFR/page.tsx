@@ -30,6 +30,13 @@ interface DashboardStats {
   rejectedCount: number;
 }
 
+interface UserProfile {
+  name: string;
+  role: string;
+  college: string;
+  profilePicture: string;
+}
+
 export default function ResearchCoordinator() {
   const [filterStatus, setFilterStatus] = useState<string>('all');
   const [submissions, setSubmissions] = useState<Submission[]>([]);
@@ -39,6 +46,12 @@ export default function ResearchCoordinator() {
     pendingCount: 0,
     approvedCount: 0,
     rejectedCount: 0
+  });
+  const [userProfile, setUserProfile] = useState<UserProfile>({
+    name: 'Loading...',
+    role: 'Loading...',
+    college: 'Loading...',
+    profilePicture: ''
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -82,6 +95,26 @@ export default function ResearchCoordinator() {
     fetchSubmissions();
   }, []);
 
+  // Fetch user profile from database
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const response = await fetch('/api/user/profile');
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch user profile');
+        }
+        
+        const data = await response.json();
+        setUserProfile(data);
+      } catch (err) {
+        console.error('Error fetching user profile:', err);
+      }
+    };
+
+    fetchUserProfile();
+  }, []);
+
   // Fetch latest announcement from database
   useEffect(() => {
     const fetchAnnouncement = async () => {
@@ -117,18 +150,26 @@ export default function ResearchCoordinator() {
         <div className="bg-white rounded-2xl shadow-sm p-6 mb-6">
           <div className="flex items-start gap-4">
             <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full flex items-center justify-center flex-shrink-0">
-              <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center">
-                <span className="text-2xl">👤</span>
+              <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center overflow-hidden">
+                {userProfile.profilePicture ? (
+                  <img 
+                    src={userProfile.profilePicture} 
+                    alt="Profile" 
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <span className="text-2xl">👤</span>
+                )}
               </div>
             </div>
             
             <div className="flex-1">
-              <h1 className="text-xl font-semibold text-gray-900">Senior Faculty Researcher</h1>
+              <h1 className="text-xl font-semibold text-gray-900">{userProfile.role}</h1>
               <div className="flex items-center gap-2 mt-1">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full"></div>
+                <img src="/images/logo/UEPlogo.png" alt="UEP Logo" className="w-8 h-8 object-contain" />
                 <div>
                   <p className="text-sm font-medium text-gray-700">UNIVERSITY OF EASTERN PHILIPPINES</p>
-                  <p className="text-xs text-gray-500">Dr. Maria L. Santos • Senior Faculty Reseacrher, College of Engineering</p>
+                  <p className="text-xs text-gray-500">{userProfile.name} • {userProfile.role}, {userProfile.college}</p>
                 </div>
               </div>
             </div>
