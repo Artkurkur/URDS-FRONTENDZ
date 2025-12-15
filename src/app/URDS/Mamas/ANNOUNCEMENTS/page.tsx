@@ -19,24 +19,7 @@ export interface Announcement {
 const AnnouncementInterface = () => {
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [allAnnouncements, setAllAnnouncements] = useState<Announcement[]>([
-    {
-      id: '1',
-      title: 'Research Proposals for Academic Year 2024-2025',
-      date: '2025-10-12',
-      deadline: '2025-10-13',
-      hasGuidelines: true,
-      displayDate: 'Oct 12, 2025'
-    },
-    {
-      id: '2',
-      title: 'Upcoming URDS Seminar',
-      date: '2025-09-25',
-      deadline: '2025-09-28',
-      hasGuidelines: false,
-      displayDate: 'Sep 25, 2025'
-    }
-  ]);
+  const [allAnnouncements, setAllAnnouncements] = useState<Announcement[]>([]);
 
   const filterOptions = [
     { value: 'all', label: 'All Inboxes' },
@@ -74,7 +57,8 @@ const AnnouncementInterface = () => {
   return (
     <div className="min-h-screen bg-linear-to-br from-orange-50 via-white to-orange-50 text-gray-800">
       <URDSSidebar />
-      <div className="w-full max-w-6xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden">
+      <div className="flex-1 w-full md:ml-28 p-4 md:p-6">
+        <div className="w-full max-w-6xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden">
         {/* Header */}
         <div className="bg-white border-b border-gray-200 p-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 gap-4">
@@ -130,6 +114,7 @@ const AnnouncementInterface = () => {
             ))
           )}
         </div>
+              </div>
       </div>
     </div>
   );
